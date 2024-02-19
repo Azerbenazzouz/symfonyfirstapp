@@ -19,13 +19,12 @@ class BlogController extends AbstractController
                 'name'=>'azerbenazzouz'
             ]
         );
-        dd($url);
+        return $this->redirectToRoute($url);
     }
 
     #[Route('/article/{id<\d+>}/{name<[a-zA-Z0-9]+>}', name: '_article')]
     public function article_detail($id,$name): Response
     {
-        $url = $this->generateUrl('blog_home');
         return $this->render('blog/article_deatail.html.twig', [
             'id' => $id,
             'name' => $name
