@@ -12,14 +12,21 @@ class BlogController extends AbstractController
     public function index(): Response
     {
         //return $this->render('blog/index.html.twig', ['controller_name' => 'BlogController',]);
-        $url = $this->generateUrl(
+        //$url = $this->generateUrl(
+        //    'blog_article',
+        //    [
+        //        'id'=>7,
+        //        'name'=>'azerbenazzouz'
+        //    ]
+        //);
+        //return $this->redirect($url);
+        return $this->redirectToRoute(
             'blog_article',
             [
                 'id'=>7,
                 'name'=>'azerbenazzouz'
             ]
         );
-        return $this->redirectToRoute($url);
     }
 
     #[Route('/article/{id<\d+>}/{name<[a-zA-Z0-9]+>}', name: '_article')]
